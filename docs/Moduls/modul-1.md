@@ -1,3 +1,10 @@
+---
+layout: default
+title: Modul 1 - Perumusan Masalah
+nav_order: 1
+parent: Modul
+---
+
 ## Modul 1 – Pembentukan Kelompok & Perumusan Masalah
 
 ## LAB 1.1: PEMBENTUKAN KELOMPOK
