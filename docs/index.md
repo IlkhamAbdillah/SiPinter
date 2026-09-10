@@ -115,8 +115,8 @@ Integrasi LMS berskala global dan kemampuan AI-assisted grouping yang memproses 
 | --- | --- | --- |
 | Nama | ZipGrade |   |
 | Jenis Kompetitor | Indirect Competitor |   |
-| Jenis Produk | Cloud | Mobile Application (Android/iOS) terintegrasi dengan Web Portal |
-| Target Customer | evaluasi ujian cepat. | Guru K-12, dosen, dan instruktur kursus yang membutuhkan |
+| Jenis Produk | Mobile Application (Android/iOS) terintegrasi dengan Web Portal Cloud|
+| Target Customer | Guru K-12, dosen, dan instruktur kursus yang membutuhkan evaluasi ujian cepat. |
 
 | Kelebihan | Kekurangan |
 | --- | --- |
