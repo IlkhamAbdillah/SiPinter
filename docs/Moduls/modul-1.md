@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Modul 1 - Perumusan Masalah
-nav_order: 1
+nav_order: 2
 parent: Modul
 ---
 
