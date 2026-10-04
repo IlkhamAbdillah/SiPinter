@@ -1,0 +1,415 @@
+/* ============================================================
+   SiPinter — Wireframe styles
+   Grayscale, boxy, low-fidelity. No brand colors, no gradients.
+   ============================================================ */
+
+:root {
+  --ink: #222;          /* primary text / borders */
+  --ink-soft: #666;     /* secondary text */
+  --ink-faint: #999;    /* placeholder / meta */
+  --line: #bbb;         /* borders */
+  --line-soft: #ddd;    /* subtle dividers */
+  --bg: #f4f4f4;        /* page background */
+  --panel: #fff;        /* panel background */
+  --fill: #e8e8e8;      /* filled bars / chips */
+  --fill-dark: #cfcfcf; /* darker fill */
+  --radius: 4px;
+  --gap: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: ui-monospace, "Cascadia Code", "Courier New", monospace;
+  color: var(--ink);
+  background: var(--bg);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+a {
+  color: var(--ink);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0 0 4px;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 24px;
+}
+h2 {
+  font-size: 18px;
+}
+h3 {
+  font-size: 15px;
+}
+
+p {
+  margin: 0 0 8px;
+}
+
+.muted {
+  color: var(--ink-soft);
+}
+.meta {
+  color: var(--ink-faint);
+  font-size: 12px;
+}
+
+/* ---------- Generic boxes ---------- */
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: var(--gap);
+}
+
+.box-dashed {
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+}
+
+.row {
+  display: flex;
+  gap: var(--gap);
+}
+.row.wrap {
+  flex-wrap: wrap;
+}
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+.grow {
+  flex: 1;
+}
+.between {
+  justify-content: space-between;
+}
+.center {
+  align-items: center;
+}
+
+.stack > * + * {
+  margin-top: var(--gap);
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 1px solid var(--ink);
+  background: var(--panel);
+  color: var(--ink);
+  border-radius: var(--radius);
+  padding: 8px 14px;
+  font: inherit;
+  cursor: pointer;
+  text-decoration: none;
+}
+.btn:hover {
+  background: var(--fill);
+}
+.btn.primary {
+  background: var(--ink);
+  color: #fff;
+}
+.btn.primary:hover {
+  background: #000;
+}
+.btn.block {
+  width: 100%;
+}
+.btn.sm {
+  padding: 4px 10px;
+  font-size: 12px;
+}
+
+/* ---------- Form fields ---------- */
+.field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+  padding: 10px 12px;
+}
+.field .ic {
+  color: var(--ink-faint);
+}
+.field input,
+.field select {
+  border: none;
+  outline: none;
+  font: inherit;
+  width: 100%;
+  background: transparent;
+  color: var(--ink);
+}
+.label {
+  display: block;
+  font-size: 12px;
+  color: var(--ink-soft);
+  margin-bottom: 4px;
+}
+
+/* ---------- Chips / badges ---------- */
+.chip {
+  display: inline-block;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 2px 10px;
+  font-size: 11px;
+  color: var(--ink-soft);
+  background: var(--panel);
+}
+.chip.solid {
+  background: var(--fill);
+}
+
+/* ---------- Progress bar ---------- */
+.bar {
+  height: 8px;
+  background: var(--line-soft);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.bar > span {
+  display: block;
+  height: 100%;
+  background: var(--ink-soft);
+}
+
+/* ---------- Tables ---------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th,
+td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--line-soft);
+  font-size: 13px;
+}
+th {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  background: var(--fill);
+}
+
+/* ---------- Placeholder blocks ---------- */
+.ph {
+  background: repeating-linear-gradient(
+    45deg,
+    var(--fill),
+    var(--fill) 8px,
+    #efefef 8px,
+    #efefef 16px
+  );
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+}
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--fill);
+  font-size: 12px;
+  flex: 0 0 auto;
+}
+
+/* ---------- Auth layout ---------- */
+.auth {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.auth .art {
+  border-right: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: repeating-linear-gradient(
+    135deg,
+    #ececec,
+    #ececec 20px,
+    #f4f4f4 20px,
+    #f4f4f4 40px
+  );
+  color: var(--ink-faint);
+}
+.auth .form-side {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.auth .card {
+  width: 100%;
+  max-width: 360px;
+}
+@media (max-width: 760px) {
+  .auth {
+    grid-template-columns: 1fr;
+  }
+  .auth .art {
+    display: none;
+  }
+}
+
+/* ---------- App shell ---------- */
+.shell {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  min-height: 100vh;
+}
+.sidebar {
+  border-right: 1px solid var(--line);
+  background: var(--panel);
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 4px 8px 16px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.brand .logo {
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--ink);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 12px;
+  flex: 1;
+}
+.nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: var(--ink-soft);
+  border: 1px solid transparent;
+}
+.nav a:hover {
+  background: var(--fill);
+}
+.nav a.active {
+  background: var(--fill);
+  color: var(--ink);
+  border-color: var(--line);
+  font-weight: 700;
+}
+.user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line-soft);
+}
+.main {
+  padding: 24px;
+  overflow: auto;
+}
+.page-head {
+  margin-bottom: 20px;
+}
+
+/* ---------- Stat cards grid ---------- */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--gap);
+}
+.stat .n {
+  font-size: 26px;
+  font-weight: 700;
+}
+@media (max-width: 900px) {
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .shell {
+    grid-template-columns: 64px 1fr;
+  }
+  .nav a span,
+  .brand span,
+  .user .u-text {
+    display: none;
+  }
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap);
+}
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gap);
+}
+@media (max-width: 900px) {
+  .grid-2,
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--line-soft);
+  margin: 16px 0;
+}
+
+/* circular gauge (wireframe) */
+.gauge {
+  width: 72px;
+  height: 72px;
+  border-radius: 999px;
+  border: 6px solid var(--line);
+  border-top-color: var(--ink-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  flex: 0 0 auto;
+}
