@@ -8,11 +8,11 @@ const SOAL = [
 ];
 
 const RIWAYAT = [
-  { t: "Nilai final disimpan", d: "Monica · hari ini, 10:24" },
-  { t: "Skor essai dikoreksi", d: "34 menjadi 36 · hari ini, 10:18" },
-  { t: "Analisis AI selesai", d: "Keyakinan model 88% · 09:56" },
-  { t: "OCR terverifikasi", d: "Akurasi dokumen 94% · 09:42" },
-  { t: "Laporan siap diunduh", d: "Menunggu sinkronisasi portal akademik" },
+  { t: "Nilai final disimpan", d: "Monica · hari ini, 10:24", done: true },
+  { t: "Skor essai dikoreksi", d: "34 menjadi 36 · hari ini, 10:18", done: true },
+  { t: "Analisis AI selesai", d: "Keyakinan model 88% · 09:56", done: true },
+  { t: "OCR terverifikasi", d: "Akurasi dokumen 94% · 09:42", done: true },
+  { t: "Laporan siap diunduh", d: "Menunggu sinkronisasi portal akademik", done: false },
 ];
 
 export default function DetailNilaiPage({
@@ -47,16 +47,16 @@ export default function DetailNilaiPage({
             <div className="meta">NIM {params.nim} · Informatika 2024</div>
             <div className="row" style={{ gap: 6, marginTop: 6 }}>
               <span className="chip">Kelas IF-5A</span>
-              <span className="chip solid">Terverifikasi</span>
+              <span className="chip ok">Terverifikasi</span>
             </div>
           </div>
         </div>
         <div className="panel">
           <span className="meta">Nilai akhir</span>
-          <div className="n">
+          <div className="n" style={{ color: "var(--maroon)" }}>
             76 <span className="meta">/100</span>
           </div>
-          <span className="chip solid">Lulus · predikat B</span>
+          <span className="chip ok">Lulus · predikat B</span>
         </div>
         <div className="panel">
           <span className="meta">Komposisi nilai</span>
@@ -111,7 +111,13 @@ export default function DetailNilaiPage({
                       <strong>{s.final}</strong>
                     </td>
                     <td>
-                      <span className="chip">{s.status}</span>
+                      <span
+                        className={`chip ${
+                          s.status === "Sesuai" ? "ok" : "info"
+                        }`}
+                      >
+                        {s.status}
+                      </span>
                     </td>
                     <td>
                       <button className="btn sm">Tinjau</button>
@@ -143,19 +149,21 @@ export default function DetailNilaiPage({
           <div className="panel">
             <div className="row between center">
               <h3>Status verifikasi</h3>
-              <span className="chip solid">Selesai</span>
+              <span className="chip ok">Selesai</span>
             </div>
             <div className="row between" style={{ margin: "8px 0" }}>
               <span className="meta">Kelengkapan proses</span>
               <strong>100%</strong>
             </div>
-            <div className="bar">
+            <div className="bar ok">
               <span style={{ width: "100%" }} />
             </div>
             <hr />
-            <p style={{ margin: 0 }}>✓ OCR dikonfirmasi</p>
-            <p style={{ margin: 0 }}>✓ Skor AI ditinjau</p>
-            <p style={{ margin: 0 }}>✓ Nilai final ditetapkan</p>
+            <p style={{ margin: 0, color: "var(--ok)" }}>✓ OCR dikonfirmasi</p>
+            <p style={{ margin: 0, color: "var(--ok)" }}>✓ Skor AI ditinjau</p>
+            <p style={{ margin: 0, color: "var(--ok)" }}>
+              ✓ Nilai final ditetapkan
+            </p>
           </div>
 
           <div className="panel">
@@ -164,7 +172,12 @@ export default function DetailNilaiPage({
             <div className="col" style={{ gap: 12, marginTop: 12 }}>
               {RIWAYAT.map((r) => (
                 <div key={r.t} className="row" style={{ gap: 10 }}>
-                  <span aria-hidden>●</span>
+                  <span
+                    aria-hidden
+                    style={{ color: r.done ? "var(--ok)" : "var(--warn)" }}
+                  >
+                    ●
+                  </span>
                   <div>
                     <strong>{r.t}</strong>
                     <div className="meta">{r.d}</div>

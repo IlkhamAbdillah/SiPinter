@@ -43,7 +43,7 @@ export default function SignupPage() {
             </div>
           </div>
 
-          <Link className="btn primary block" href="/dashboard">
+          <Link className="btn accent block" href="/dashboard">
             Sign Up
           </Link>
 

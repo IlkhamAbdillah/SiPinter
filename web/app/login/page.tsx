@@ -27,7 +27,7 @@ export default function LoginPage() {
             </div>
           </div>
 
-          <Link className="btn primary block" href="/dashboard">
+          <Link className="btn accent block" href="/dashboard">
             Login
           </Link>
 

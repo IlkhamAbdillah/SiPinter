@@ -26,27 +26,27 @@ export default function PenilaianPage() {
           <div>
             <strong>Ketepatan jawaban</strong>
             <div className="meta">16 dari 20 konsep terdeteksi benar</div>
-            <span className="chip solid" style={{ marginTop: 6, display: "inline-block" }}>
+            <span className="chip ok" style={{ marginTop: 6, display: "inline-block" }}>
               Di atas ambang 70%
             </span>
           </div>
         </div>
         <div className="panel row center" style={{ gap: 16 }}>
-          <div className="gauge">74%</div>
+          <div className="gauge accent">74%</div>
           <div>
             <strong>Kesesuaian argumen</strong>
             <div className="meta">14 dari 20 indikator terpenuhi</div>
-            <span className="chip solid" style={{ marginTop: 6, display: "inline-block" }}>
+            <span className="chip ok" style={{ marginTop: 6, display: "inline-block" }}>
               Di atas ambang 70%
             </span>
           </div>
         </div>
-        <div className="panel">
+        <div className="panel hero">
           <div className="row between center">
             <span className="meta">Rekomendasi skor AI</span>
             <span>✦</span>
           </div>
-          <div className="n" style={{ fontSize: 36, fontWeight: 700 }}>
+          <div className="n" style={{ fontSize: 36, fontWeight: 700, color: "var(--on-dark)" }}>
             80
           </div>
           <div className="meta">dari 100 · keyakinan model 88%</div>
@@ -60,7 +60,7 @@ export default function PenilaianPage() {
           <div>
             <div className="row center" style={{ gap: 8 }}>
               <strong>Analisis NLP</strong>
-              <span className="chip">2 bagian perlu perhatian</span>
+              <span className="chip warn">2 bagian perlu perhatian</span>
             </div>
             <p className="muted" style={{ margin: "4px 0 0" }}>
               Jawaban menjelaskan karakteristik cloud dengan baik, tetapi
@@ -86,16 +86,16 @@ export default function PenilaianPage() {
       <div className="grid-2">
         {[
           { t: "Skor final dari dosen", v: 90, s: "Konsistensi jawaban sangat baik." },
-          { t: "Estimasi skor dari AI", v: 80, s: "Perlu tinjauan singkat pada bagian bertanda." },
+          { t: "Estimasi skor dari AI", v: 80, s: "Perlu tinjauan singkat pada bagian bertanda.", accent: true },
           { t: "Kualitas analisis NLP", v: 82, s: "Perlu tinjauan singkat pada bagian bertanda." },
-          { t: "Nilai essai", v: 90, s: "Konsistensi jawaban sangat baik.", label: "36/40" },
+          { t: "Nilai essai", v: 90, s: "Konsistensi jawaban sangat baik.", label: "36/40", accent: true },
         ].map((b) => (
           <div className="panel" key={b.t}>
             <div className="row between center">
               <strong>{b.t}</strong>
               <span>{b.label ?? `${b.v}%`}</span>
             </div>
-            <div className="bar" style={{ margin: "8px 0" }}>
+            <div className={`bar ${b.accent ? "accent" : ""}`} style={{ margin: "8px 0" }}>
               <span style={{ width: `${b.v}%` }} />
             </div>
             <span className="meta">{b.s}</span>

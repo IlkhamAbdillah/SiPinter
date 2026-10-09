@@ -51,12 +51,23 @@ export default function ReviewPage() {
                     <div className="meta">{s.type}</div>
                   </div>
                 </div>
-                <span className="meta">{s.mark}</span>
+                <span
+                  style={{
+                    color:
+                      s.mark === "✓"
+                        ? "var(--ok)"
+                        : s.mark === "⚠"
+                        ? "var(--warn)"
+                        : "var(--ink-faint)",
+                  }}
+                >
+                  {s.mark}
+                </span>
               </div>
             ))}
           </div>
           <hr />
-          <span className="chip solid">Akurasi OCR 94%</span>
+          <span className="chip ok">Akurasi OCR 94%</span>
           <p className="meta" style={{ marginTop: 8 }}>
             Bagian berwarna perlu ditinjau sebelum konfirmasi.
           </p>
@@ -99,7 +110,7 @@ export default function ReviewPage() {
               <p>B. Windows</p>
               <p>C. Google Chrome</p>
               <p>D. Adobe Photoshop</p>
-              <p className="chip solid">✎ Jawaban: B — Windows</p>
+              <p className="chip warn">✎ Jawaban: B — Windows</p>
               <p style={{ marginTop: 16 }}>
                 2. Jelaskan tiga karakteristik utama layanan cloud computing dan
                 berikan satu contoh implementasinya.
@@ -126,10 +137,18 @@ export default function ReviewPage() {
               <h3>Hasil OCR</h3>
               <span className="meta">Disimpan otomatis 2 menit lalu</span>
             </div>
-            <span className="chip solid">Akurasi tinggi</span>
+            <span className="chip ok">Akurasi tinggi</span>
           </div>
           <hr />
-          <div className="box-dashed" style={{ padding: 10, marginBottom: 12 }}>
+          <div
+            style={{
+              padding: 10,
+              marginBottom: 12,
+              borderRadius: "var(--radius)",
+              background: "var(--ok-soft)",
+              color: "var(--ok)",
+            }}
+          >
             ✓ Teks pertanyaan terbaca dengan baik.
           </div>
           <div className="panel">
@@ -139,8 +158,14 @@ export default function ReviewPage() {
             <p style={{ margin: 0 }}>C. Google Chrome</p>
             <p style={{ margin: 0 }}>D. Adobe Photoshop</p>
             <div
-              className="row between center panel"
-              style={{ marginTop: 12, padding: 10 }}
+              className="row between center"
+              style={{
+                marginTop: 12,
+                padding: 10,
+                borderRadius: "var(--radius)",
+                background: "var(--maroon-soft)",
+                color: "var(--maroon)",
+              }}
             >
               <span>Jawaban terdeteksi</span>
               <strong>B</strong>

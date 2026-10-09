@@ -60,7 +60,9 @@ export default function RekapitulasiPage() {
           </div>
         </div>
         <div className="row center">
-          <span className="meta">8 dari 10 terverifikasi</span>
+          <span className="meta" style={{ color: "var(--warn)" }}>
+            8 dari 10 terverifikasi
+          </span>
           <button className="btn">✓ Verifikasi semua</button>
         </div>
       </div>
@@ -97,7 +99,11 @@ export default function RekapitulasiPage() {
                   <strong>{r.total}</strong>
                 </td>
                 <td>
-                  <span className="chip">{r.status}</span>
+                  <span
+                    className={`chip ${r.status === "Lulus" ? "ok" : "danger"}`}
+                  >
+                    {r.status}
+                  </span>
                 </td>
                 <td>
                   <Link className="btn sm" href={`/rekapitulasi/${r.nim}`}>

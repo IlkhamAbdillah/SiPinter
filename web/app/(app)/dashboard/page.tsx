@@ -12,7 +12,7 @@ export default function DashboardPage() {
       </div>
 
       {/* Exam banner */}
-      <div className="panel">
+      <div className="panel hero">
         <h2>Ujian Tengah Semester</h2>
         <p className="muted">Komputasi Awan · Kelas IF-5A</p>
         <p className="meta">[cal] Rabu, 16 Oktober</p>
@@ -50,11 +50,13 @@ export default function DashboardPage() {
               </p>
             </div>
           </div>
-          <span className="chip">9 file tersimpan</span>
+          <span className="chip info">9 file tersimpan</span>
         </div>
         <hr />
         <div className="row between center">
-          <span className="meta">Semua dokumen utama lengkap</span>
+          <span className="meta" style={{ color: "var(--ok)" }}>
+            Semua dokumen utama lengkap
+          </span>
           <Link className="btn primary" href="/upload">
             → Upload dokumen
           </Link>
@@ -74,11 +76,13 @@ export default function DashboardPage() {
               </p>
             </div>
           </div>
-          <span className="chip">7 nilai terverifikasi</span>
+          <span className="chip ok">7 nilai terverifikasi</span>
         </div>
         <hr />
         <div className="row between center">
-          <span className="meta">3 nilai menunggu konfirmasi</span>
+          <span className="meta" style={{ color: "var(--warn)" }}>
+            3 nilai menunggu konfirmasi
+          </span>
           <Link className="btn primary" href="/rekapitulasi">
             → Lihat rekapitulasi
           </Link>

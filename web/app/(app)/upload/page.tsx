@@ -80,7 +80,13 @@ export default function UploadPage() {
                   <span className="meta">{f.pages}</span>
                 </td>
                 <td>
-                  <span className="chip">{f.status}</span>
+                  <span
+                    className={`chip ${
+                      f.status === "OCR selesai" ? "ok" : "warn"
+                    }`}
+                  >
+                    {f.status}
+                  </span>
                 </td>
                 <td>
                   <div className="row center" style={{ gap: 8 }}>
