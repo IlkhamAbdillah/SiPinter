@@ -18,6 +18,11 @@ nav_order: 1
 - [Modul 1 - Perumusan Masalah](Moduls/modul-1.html)
 - [Modul 2 - SDLC Pengembangan Produk](Moduls/modul-2.html)
 
+## Dokumentasi Teknis
+
+- [Arsitektur Sistem](Moduls/architecture.html)
+- [Cara Menjalankan Proyek](Moduls/how-to-run.html)
+
 Departemen Teknologi Elektro dan Teknologi Informasi  
 Fakultas Teknik  
 Universitas Gadjah Mada
