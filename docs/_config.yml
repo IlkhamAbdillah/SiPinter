@@ -1,3 +1,15 @@
-theme: jekyll-theme-minimal
 title: SiPinter
-description: Website Project SiPinter
+description: Dokumentasi Project SiPinter
+
+remote_theme: just-the-docs/just-the-docs
+
+url: "https://ilkhamabdillah.github.io"
+baseurl: "/SiPinter"
+
+search_enabled: true
+
+nav_enabled: true
+
+aux_links:
+  "GitHub":
+    - "https://github.com/IlkhamAbdillah/SiPinter"

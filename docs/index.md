@@ -1,6 +1,7 @@
 ---
 layout: default
 title: SiPinter
+nav_order: 1
 ---
 
 # SiPinter
@@ -24,4 +25,4 @@ title: SiPinter
 
 Departemen Teknologi Elektro dan Teknologi Informasi  
 Fakultas Teknik  
-Universitas Gadjah Mada
+Universitas Gadjah Mada
