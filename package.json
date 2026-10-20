@@ -1,0 +1,32 @@
+{
+  "name": "sipinter",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "apps/web",
+    "apps/api"
+  ],
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "dev": "concurrently --names api,web --prefix-colors blue,green \"npm run dev -w @sipinter/api\" \"npm run dev -w @sipinter/web\"",
+    "dev:api": "npm run dev -w @sipinter/api",
+    "dev:web": "npm run dev -w @sipinter/web",
+    "build": "npm run build --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "db:up": "docker compose -f docker-compose.dev.yml up -d --wait",
+    "db:down": "docker compose -f docker-compose.dev.yml down",
+    "db:migrate": "npm run db:migrate -w @sipinter/api",
+    "db:seed": "npm run db:seed -w @sipinter/api",
+    "user:create": "npm run user:create -w @sipinter/api --"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.6"
+  },
+  "overrides": {
+    "postcss": "^8.5.29"
+  }
+}

@@ -1,19 +1,45 @@
 -- =========================================================
 -- SIPINTER: DUMMY DATA
--- PostgreSQL / Supabase
--- Run after creating the database schema.
+-- PostgreSQL
+-- Run with `npm run db:seed` after `npm run db:migrate`.
+--
+-- DEVELOPMENT/TEST DATA ONLY. The seed runner refuses to run
+-- when NODE_ENV=production and wraps all seed files in one
+-- transaction, so this file has no BEGIN/COMMIT of its own.
+--
+-- The seed is repeatable: it first empties every table and
+-- resets identity counters, so the hard-coded ids below
+-- (lecturer_id 1, exam_id 1, ...) always line up.
+--
+-- LOGIN: every seeded account uses the development password
+--   sipinter-dev
+-- (scrypt hashes below). Never use these accounts outside
+-- local development.
 -- =========================================================
 
-BEGIN;
+TRUNCATE TABLE
+    sessions,
+    scores,
+    answers,
+    answer_sheets,
+    answer_keys,
+    questions,
+    exams,
+    students,
+    users
+RESTART IDENTITY CASCADE;
 
 -- =========================================================
 -- 1. USERS (LECTURERS)
 -- =========================================================
 
 INSERT INTO users (name, email, role, password) VALUES
-('Budi Santoso', 'budi.santoso@example.com', 'lecturer', 'dummy_hash_001'),
-('Siti Rahmawati', 'siti.rahmawati@example.com', 'lecturer', 'dummy_hash_002'),
-('Andi Pratama', 'andi.pratama@example.com', 'admin', 'dummy_hash_003');
+('Budi Santoso', 'budi.santoso@example.com', 'lecturer',
+ 'scrypt$32768$8$3$VXa2uSwLjYeVWtwTQ1b/Jg==$8d1bE8NxJIo2aJUuHD+hTl476b4lCAxOmr2LD8AB1Qs='),
+('Siti Rahmawati', 'siti.rahmawati@example.com', 'lecturer',
+ 'scrypt$32768$8$3$cEQBZ/Tae/hRqLdPpu9tpA==$KgUbKbqfl6zuVhfaMws7UxztMvpppCPbFvnWXMRIsEQ='),
+('Andi Pratama', 'andi.pratama@example.com', 'admin',
+ 'scrypt$32768$8$3$H/lhjthY+OmFoXcjADI5SQ==$CmPHD0SoFmUjcNf/kTkwPN5rb4rgDaIJ1qhC4fEzKe8=');
 
 
 -- =========================================================
@@ -195,5 +221,3 @@ VALUES
 (4, 91.0),
 (5, 86.5),
 (6, 78.0);
-
-COMMIT;

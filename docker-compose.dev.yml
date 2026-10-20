@@ -1,0 +1,33 @@
+# LOCAL DEVELOPMENT ONLY.
+# Starts a throwaway PostgreSQL that mirrors the AWS RDS engine version closely enough
+# for development and tests. Production uses AWS RDS and must not run this container.
+#
+#   npm run db:up            # start (waits until healthy)
+#   npm run db:down          # stop, keep data
+#   npm run db:down -- -v    # stop and DELETE the local data volume
+name: sipinter-dev
+
+services:
+  postgres:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      # Local-only credentials; never reuse these for RDS.
+      POSTGRES_USER: sipinter
+      POSTGRES_PASSWORD: sipinter_dev_password
+      POSTGRES_DB: sipinter
+    ports:
+      # Bound to localhost so the dev database is not reachable from the network.
+      # Host port defaults to 5433 to avoid clashing with a locally installed PostgreSQL.
+      - "127.0.0.1:${DEV_DB_PORT:-5433}:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./database/dev/init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U sipinter -d sipinter"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  postgres-data:

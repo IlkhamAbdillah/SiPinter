@@ -1,22 +1,23 @@
 -- =========================================================
 -- SIPINTER DATABASE
--- PostgreSQL / Supabase
+-- PostgreSQL (AWS RDS)
 -- English Naming Convention
+--
+-- Migration 0001: initial schema.
+-- Applied once by `npm run db:migrate`, inside a transaction.
+-- Never edit this file after it has been applied to a shared
+-- database; add a new numbered migration instead.
 -- =========================================================
 
 
 -- =========================================================
--- 1. DROP EXISTING TABLES
+-- 1. (removed) DROP EXISTING TABLES
 -- =========================================================
-
-DROP TABLE IF EXISTS scores CASCADE;
-DROP TABLE IF EXISTS answers CASCADE;
-DROP TABLE IF EXISTS answer_keys CASCADE;
-DROP TABLE IF EXISTS answer_sheets CASCADE;
-DROP TABLE IF EXISTS students CASCADE;
-DROP TABLE IF EXISTS questions CASCADE;
-DROP TABLE IF EXISTS exams CASCADE;
-DROP TABLE IF EXISTS users CASCADE;
+-- The original scripts/schema.sql started with DROP TABLE ...
+-- CASCADE. A forward migration must never destroy data, so
+-- those statements are not part of the migration. To rebuild
+-- a local development database from scratch, use
+-- `npm run db:down -- -v && npm run db:up` instead.
 
 
 -- =========================================================
