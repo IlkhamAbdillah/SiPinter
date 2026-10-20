@@ -14,9 +14,14 @@ title: SiPinter
 
 ## Projct Documentations
 
-- [Modul 1 - Perumusan Masalah](modul-1.html)
-- [Modul 2 - SDLC Pengembangan Produk](modul-2.html)
+- [Modul 1 - Perumusan Masalah](Moduls/modul-1.html)
+- [Modul 2 - SDLC Pengembangan Produk](Moduls/modul-2.html)
+
+## Dokumentasi Teknis
+
+- [Arsitektur Sistem](Moduls/architecture.html)
+- [Cara Menjalankan Proyek](Moduls/how-to-run.html)
 
 Departemen Teknologi Elektro dan Teknologi Informasi  
 Fakultas Teknik  
-Universitas Gadjah Mada
+Universitas Gadjah Mada
